@@ -1,11 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { defaultTheme } from './src/themes/default';
+import { AppBar } from './src/layout/Appbar';
+
+import Toast from 'react-native-toast-message';
+
+// Configs
+import "./src/lib/dayjs";
+
+// Screens
+import { HomeScreen } from './src/screens/Home';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <AppBar />
+      <HomeScreen/>
+      <Toast position='top' autoHide topOffset={60} visibilityTime={3000}  />
     </View>
   );
 }
@@ -13,8 +23,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: defaultTheme.gray600,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
   },
 });
